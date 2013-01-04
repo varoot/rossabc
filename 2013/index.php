@@ -96,7 +96,7 @@ function not_found($errno, $errstr, $errfile=null, $errline=null)
 }
 
 function sendEmail($data) {
-	$email_address = 'abcboard2013@umich.edu';
+	$email_address = 'contact.abc2013@umich.edu';
 	$data['ip_address'] = $_SERVER["REMOTE_ADDR"];
 	$data['user_agent'] = $_SERVER["HTTP_USER_AGENT"];
 	$data['message'] = str_replace("\r\n", "\n", $data['message']);

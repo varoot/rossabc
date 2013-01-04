@@ -5,133 +5,144 @@ set('page_title', 'Team');
 <h1>Core Team</h1>
 <dl>
 	<dt>Conference Co-Chairs</dt>
-	<dd>Sophia Song</dd>
-	<dd>Muriel Makarim</dd>
+	<dd><a href="mailto:songping@umich.edu" target="_blank">Sophia Song</a></dd>
+	<dd><a href="mailto:mmakarim@umich.edu" target="_blank">Muriel Makarim</a></dd>
 </dl>
 <dl>
 	<dt>VP of Conference</dt>
-	<dd>James Zhou</dd>
+	<dd><a href="mailto:zhoujian@umich.edu" target="_blank">James Zhou</a></dd>
 </dl>
 <dl>
 	<dt>Director of Marketing</dt>
-	<dd>Zarin Singh</dd>
+	<dd><a href="mailto:sizarin@umich.edu" target="_blank">Zarin Singh</a></dd>
 </dl>
 <dl>
 	<dt>Associate Directors of Marketing</dt>
-	<dd>Anqi Angel Shen</dd><dd>Alice Bae</dd><dd>Changrui Shi</dd>
+	<dd><a href="mailto:anshen@umich.edu" target="_blank">Anqi Angel Shen</a></dd>
+	<dd><a href="mailto:baehy@umich.edu" target="_blank">Alice Bae</a></dd>
+	<dd><a href="mailto:changrui@umich.edu" target="_blank">Changrui Shi</a></dd>
 </dl>
 <dl>
 	<dt>Director of Operations</dt>
-	<dd>Albert Tijpto</dd>
+	<dd><a href="mailto:atjipto@umich.edu" target="_blank">Albert Tijpto</a></dd>
 </dl>
 <dl>
 	<dt>Associate Director of Operations</dt>
-	<dd>Noelle Lee</dd><dd>Kevin Chen</dd>
+	<dd><a href="mailto:noellee@umich.edu" target="_blank">Noelle Lee</a></dd>
+	<dd><a href="mailto:kvchen@umich.edu" target="_blank">Kevin Chen</a></dd>
 </dl>
 <dl>
 	<dt>Director of Coporate Relations</dt>
-	<dd>Sol Lee</dd>
+	<dd><a href="mailto:sollee@umich.edu" target="_blank">Sol Lee</a></dd>
 </dl>
 <dl>
 	<dt>Associate Director of Coporate Relations</dt>
-	<dd>Yusi Sang</dd><dd>Stacy Liu</dd><dd>Kelly Wang</dd>
+	<dd><a href="mailto:yusisang@umich.edu" target="_blank">Yusi Sang</a></dd>
+	<dd>Stacy Liu</dd>
+	<dd>Kelly Wang</dd>
 </dl>
 <dl>
 	<dt>Director of Finance</dt>
-	<dd>Duykhiem Le</dd>
+	<dd><a href="mailto:duykhiem@umich.edu" target="_blank">Duykhiem Le</a></dd>
 </dl>
 <dl>
 	<dt>Associate Director of Finance</dt>
-	<dd>Yena Jeon</dd><dd>Siyu Tu</dd>
+	<dd><a href="mailto:yenaj@umich.edu" target="_blank">Yena Jeon</a></dd>
+	<dd><a href="mailto:tusiy@umich.edu" target="_blank">Siyu Tu</a></dd>
 </dl>
 <dl>
 	<dt>Director of Case Competition</dt>
-	<dd>Julia Gu</dd>
+	<dd><a href="mailto:juliaxgu@umich.edu" target="_blank">Julia Gu</a></dd>
 </dl>
 <dl>
 	<dt>Associate Director of Case Competition</dt>
-	<dd>Andrew Liu</dd><dd>Bernadette Tan</dd><dd>Peeranan Chantrakul</dd>
+	<dd>Andrew Liu</dd>
+	<dd><a href="mailto:berntan@umich.edu" target="_blank">Bernadette Tan</a></dd>
+	<dd><a href="mailto:peeranan@umich.edu" target="_blank">Peeranan Chantrakul</a></dd>
 </dl>
 <dl>
 	<dt>Social Co-Directors</dt>
-	<dd>Mavis Hu</dd><dd>Xian Mo</dd>
+	<dd><a href="mailto:mavishu@umich.edu" target="_blank">Mavis Hu</a></dd>
+	<dd><a href="mailto:xianmo@umich.edu" target="_blank">Xian Mo</a></dd>
 </dl>
 <dl>
 	<dt>Director of IT</dt>
-	<dd>Varoot Phasuthadol</dd>
+	<dd><a href="mailto:varoot@umich.edu" target="_blank">Varoot Phasuthadol</a></dd>
+	<dd>Michelle Kim</dd>
 </dl>
 <dl>
 	<dt>VP of Panels</dt>
-	<dd>J Park</dd><dd>Andre Siagian</dd>
+	<dd><a href="mailto:jyoungpk@umich.edu" target="_blank">J Park</a></dd>
+	<dd><a href="mailto:siagiana@umich.edu" target="_blank">Andre Siagian</a></dd>
 </dl>
 
 <h1>Panels</h1>
 <dl>
 	<dt>ASEAN</dt>
-	<dd>Garrett Kirk</dd>
-	<dd>Kayla Utama</dd>
-	<dd>LeAnn Goh</dd>
-	<dd>Ying Sharon Deng</dd>
+	<dd><a href="mailto:kirkg@umich.edu" target="_blank">Garrett Kirk</a></dd>
+	<dd><a href="mailto:kayutama@umich.edu" target="_blank">Kayla Utama</a></dd>
+	<dd><a href="mailto:leanngoh@umich.edu" target="_blank">LeAnn Goh</a></dd>
+	<dd><a href="mailto:dydeng@umich.edu" target="_blank">Ying Sharon Deng</a></dd>
 </dl>
 <dl>
 	<dt>China</dt>
-	<dd>Jin Ma</dd>
-	<dd>Mingwen Xia</dd>
+	<dd><a href="mailto:jinma@umich.edu" target="_blank">Jin Ma</a></dd>
+	<dd><a href="mailto:mingwen@umich.edu" target="_blank">Mingwen Xia</a></dd>
 	<dd>Judy Chen</dd>
-	<dd>Ariel Prabawa</dd>
+	<dd><a href="mailto:ielbawa@umich.edu" target="_blank">Ariel Prabawa</a></dd>
 </dl>
 <dl>
 	<dt>India</dt>
-	<dd>Eric Chi</dd>
-	<dd>Tanvi Deshpande</dd>
+	<dd><a href="mailto:ericchi@umich.edu" target="_blank">Eric Chi</a></dd>
+	<dd><a href="mailto:tanumich@umich.edu" target="_blank">Tanvi Deshpande</a></dd>
 </dl>
 <dl>
 	<dt>Japan</dt>
-	<dd>Daisuke Yomogida</dd>
-	<dd>Ken Takeshi Muro</dd>
-	<dd>Jing Jing Wu</dd>
+	<dd><a href="mailto:dayomogi@umich.edu" target="_blank">Daisuke Yomogida</a></dd>
+	<dd><a href="mailto:muroken@umich.edu" target="_blank">Ken Takeshi Muro</a></dd>
+	<dd><a href="mailto:jingsq@umich.edu" target="_blank">Jing Jing Wu</a></dd>
 </dl>
 <dl>
 	<dt>Korea</dt>
-	<dd>Youngwan Kim</dd>
+	<dd><a href="mailto:ktprkim@umich.edu" target="_blank">Youngwan Kim</a></dd>
 	<dd>Aeron Kim</dd>
-	<dd>Sang-eun Park</dd>
+	<dd><a href="mailto:qkrtkd@umich.edu" target="_blank">Sang-eun Park</a></dd>
 	<dd>Grace Kim</dd>
 </dl>
 <dl>
 	<dt>Technology</dt>
-	<dd>Natee Pretikul</dd>
-	<dd>Yong Jun Cho</dd>
-	<dd>Albert Wibowo</dd>
+	<dd><a href="mailto:nateenew@umich.edu" target="_blank">Natee Pretikul</a></dd>
+	<dd><a href="mailto:choyong@umich.edu" target="_blank">Yong Jun Cho</a></dd>
+	<dd><a href="mailto:awibowo@umich.edu" target="_blank">Albert Wibowo</a></dd>
 </dl>
 <dl>
 	<dt>Energy</dt>
-	<dd>Jeff Ge</dd>
-	<dd>Felix Tio</dd>
-	<dd>Li Zhang</dd>
+	<dd><a href="mailto:jeffge@umich.edu" target="_blank">Jeff Ge</a></dd>
+	<dd><a href="mailto:ftio@umich.edu" target="_blank">Felix Tio</a></dd>
+	<dd><a href="mailto:zhangleo@umich.edu" target="_blank">Li Zhang</a></dd>
 </dl>
 <dl>
 	<dt>Finance</dt>
-	<dd>Vimalan Subramanian</dd>
-	<dd>Matthew Creeden</dd>
-	<dd>Nakorn Thurajane</dd>
-	<dd>Jiani Xiong</dd>
+	<dd><a href="mailto:vimalan@umich.edu" target="_blank">Vimalan Subramanian</a></dd>
+	<dd><a href="mailto:mcreeden@umich.edu" target="_blank">Matthew Creeden</a></dd>
+	<dd><a href="mailto:tnakorn@umich.edu" target="_blank">Nakorn Thurajane</a></dd>
+	<dd><a href="mailto:xiongjia@umich.edu" target="_blank">Jiani Xiong</a></dd>
 </dl>
 <dl>
 	<dt>Corporate Social Responsibility</dt>
-	<dd>Albert Shiue</dd>
-	<dd>David Wang</dd>
+	<dd><a href="mailto:ashiue@umich.edu" target="_blank">Albert Shiue</a></dd>
+	<dd><a href="mailto:ddwang@umich.edu" target="_blank">David Wang</a></dd>
 </dl>
 <dl>
 	<dt>Entrepreneurship</dt>
-	<dd>Minfei Dai</dd>
-	<dd>Chung Han Chan</dd>
+	<dd><a href="mailto:mingfeid@umich.edu" target="_blank">Minfei Dai</a></dd>
+	<dd><a href="mailto:chhchan@umich.edu" target="_blank">Chung Han Chan</a></dd>
 	<dd>Chris Liu</dd>
 </dl>
 <dl>
 	<dt>Aviation</dt>
-	<dd>Jimmy Kang Lai Boon</dd>
-	<dd>Winson Pangestu</dd>
+	<dd><a href="mailto:jimmyklb@umich.edu" target="_blank">Jimmy Kang Lai Boon</a></dd>
+	<dd><a href="mailto:winpan@umich.edu" target="_blank">Winson Pangestu</a></dd>
 </dl>
 
 </article>
