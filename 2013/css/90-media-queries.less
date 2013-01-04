@@ -1,0 +1,181 @@
+/* ==|== media queries ====================================================== */
+
+@media only screen and (min-width: 480px) {
+	header {
+		.logo {
+			background: transparent;
+			float: right;
+			margin: 0 8px;
+			border-bottom: none;
+
+			img {
+				margin: 0 2px 3px;
+				border-bottom: 3px solid @brandBlue;
+				.drop-shadow(0, 1px, 2px, 0.15);
+			}
+		}
+
+		.banner {
+			.title {
+				padding-top: 30px;
+				
+				.date { font-size: 24px; }
+				h1 { font-size: 36px; }
+			}
+		}
+	}
+	
+	dl {
+		text-indent: -2.5em;
+		padding-left: 5em;
+
+		dt {
+			display: inline;
+		}
+
+		dd {
+			display: inline;
+			margin: 0;
+
+			&:after {
+				content: ' | ';
+				color: #ccc;
+			}			
+		}
+	}
+
+	article {
+		text-align: justify;
+	}
+}
+
+@media only screen and (min-width: 600px) {
+	.tabs {
+		> ul {
+			float: left;
+			min-width: 11em;
+		}
+		
+		> div {
+			margin-left: 14em;
+		}
+	}
+}
+
+@media only screen and (min-width: 768px) {
+	html.multiplebgs {
+		background: url(../images/logo-bg.png) no-repeat center 260px, #eee url(data:image/gif;base64,R0lGODlhAwADAIAAAPf39+7u7iH5BAAAAAAALAAAAAADAAMAAAIDRI5XADs=);
+	}
+
+	html.no-multiplebgs {
+		body {
+			background: transparent url(../images/logo-bg.png) no-repeat center 260px;
+		}
+	}
+	
+	header {
+		.banner {
+			height: 240px;
+			
+			.title {
+				.date { font-size: 36px; }
+				h1 { font-size: 58px; }
+				position: absolute;
+				left: 0;
+				bottom: 0;
+			}
+		}
+		
+		aside {
+			width: 120px;
+			position: absolute;
+			right: 6px;
+			bottom: 6px;
+		}
+	}
+	
+	div.image {
+		img {
+			display: block;
+			margin: 6px 0 12px;
+		}
+	}
+	
+	article.panel {
+		div.image {
+			float: right;
+			margin-left: 1.5em;
+			margin-bottom: 1.5em;
+		}
+		
+		div.profile {
+			p {
+				margin-left: 128 + 40px;
+			}
+		}
+	}
+
+	div.panel {
+		margin-left: 2.5em;
+		
+		div.image {
+			float: left;
+		}
+		
+		h2 {
+			text-align: left;
+		}
+		
+		h2, h3, p, ul {
+			margin-left: 240px;
+		}
+	}
+	
+	div.profile {
+		div.image {
+			float: left;
+			margin: 6px 0 1.5em;
+		}
+
+		p, ul {
+			margin-left: 240px;
+		}
+	}
+
+	form {
+		fieldset.columns {
+			> div {
+				> label {
+					display: inline-block;
+					width: 9em;
+					text-align: right;
+				}
+			}
+			&.wide {
+				> div {
+					> label {
+						display: block;
+						width: auto;
+						text-align: left;
+					}
+				}
+			}
+		}
+	}
+}
+
+@media only screen and (min-width: 924px) {
+	form {
+		fieldset.columns {
+			&.wide {
+				> div {
+					> label {
+						display: inline-block;
+						width: 12em;
+						text-align: right;
+					}
+				}
+			}
+		}
+	}
+}
