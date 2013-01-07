@@ -10,11 +10,11 @@ if ($register_early) {
 }
 
 $q1 = array('Student', 'Faculty', 'Michigan Alumni', 'Professional/Other');
-$q2 = array('China', 'Energy', 'ASEAN (Southeast Asia)');
-$q3 = array('Finance', 'Entrepreneurship', 'Corporate Social Responsibility');
-$q4 = array('India', 'Japan & Korea', 'Technology');
+$q2 = array('China', 'Transportation', 'ASEAN (Southeast Asia)');
+$q3 = array('India', 'Japan', 'Technology');
+$q4 = array('Finance', 'Entrepreneurship', 'Korea');
 $q5 = array('Yes', 'No');
-$q6 = array('Conference Website','Email from the ABC','Email from a friend/professor/club/etc.','Flyer','Asia Business Conference Table','Word of mouth','Other, please describe:');
+$q6 = array('Conference Website','Email from the ABC','Email from a friend/professor/club/etc.','Flyer','Asia Business Conference Table','Word of mouth','Facebook','Other, please describe:');
 ?>
 <article>
 <h1>Confirm Information</h1>
