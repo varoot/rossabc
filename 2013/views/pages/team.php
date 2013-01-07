@@ -38,8 +38,8 @@ set('page_title', 'Team');
 <dl>
 	<dt>Associate Director of Coporate Relations</dt>
 	<dd><a href="mailto:yusisang@umich.edu" target="_blank">Yusi Sang</a></dd>
-	<dd>Stacy Liu</dd>
-	<dd>Kelly Wang</dd>
+	<dd><a href="mailto:shuangl@umich.edu" target="_blank">Stacy Liu</a></dd>
+	<dd><a href="mailto:wangminy@umich.edu" target="_blank">Kelly Wang</a></dd>
 </dl>
 <dl>
 	<dt>Director of Finance</dt>
@@ -56,7 +56,7 @@ set('page_title', 'Team');
 </dl>
 <dl>
 	<dt>Associate Director of Case Competition</dt>
-	<dd>Andrew Liu</dd>
+	<dd><a href="mailto:aliu@umich.edu" target="_blank">Andrew Liu</a></dd>
 	<dd><a href="mailto:berntan@umich.edu" target="_blank">Bernadette Tan</a></dd>
 	<dd><a href="mailto:peeranan@umich.edu" target="_blank">Peeranan Chantrakul</a></dd>
 </dl>
@@ -68,7 +68,7 @@ set('page_title', 'Team');
 <dl>
 	<dt>Director of IT</dt>
 	<dd><a href="mailto:varoot@umich.edu" target="_blank">Varoot Phasuthadol</a></dd>
-	<dd>Michelle Kim</dd>
+	<dd><a href="mailto:lyeon@umich.edu" target="_blank">Michelle Kim</a></dd>
 </dl>
 <dl>
 	<dt>VP of Panels</dt>
@@ -88,7 +88,7 @@ set('page_title', 'Team');
 	<dt>China</dt>
 	<dd><a href="mailto:jinma@umich.edu" target="_blank">Jin Ma</a></dd>
 	<dd><a href="mailto:mingwen@umich.edu" target="_blank">Mingwen Xia</a></dd>
-	<dd>Judy Chen</dd>
+	<dd><a href="mailto:glchen@umich.edu" target="_blank">Judy Chen</a></dd>
 	<dd><a href="mailto:ielbawa@umich.edu" target="_blank">Ariel Prabawa</a></dd>
 </dl>
 <dl>
@@ -105,7 +105,7 @@ set('page_title', 'Team');
 <dl>
 	<dt>Korea</dt>
 	<dd><a href="mailto:ktprkim@umich.edu" target="_blank">Youngwan Kim</a></dd>
-	<dd>Aeron Kim</dd>
+	<dd><a href="mailto:aeronkim@umich.edu" target="_blank">Aeron Kim</a></dd>
 	<dd><a href="mailto:qkrtkd@umich.edu" target="_blank">Sang-eun Park</a></dd>
 	<dd>Grace Kim</dd>
 </dl>
@@ -137,7 +137,7 @@ set('page_title', 'Team');
 	<dt>Entrepreneurship</dt>
 	<dd><a href="mailto:mingfeid@umich.edu" target="_blank">Minfei Dai</a></dd>
 	<dd><a href="mailto:chhchan@umich.edu" target="_blank">Chung Han Chan</a></dd>
-	<dd>Chris Liu</dd>
+	<dd><a href="mailto:yangjunl@umich.edu" target="_blank">Chris Liu</a></dd>
 </dl>
 <dl>
 	<dt>Aviation</dt>
