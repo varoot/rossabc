@@ -19,7 +19,7 @@ function configure()
 	set('site_title', 'Ross Asia Business Conference');
 
 	$deadline_early_registration = strtotime('2012-02-08 11:59pm');
-	$deadline_registration = strtotime('2012-02-10 3:00pm');
+	$deadline_registration = strtotime('2013-02-01 3:00pm');
 	$date_fmt = 'F j, g:ia';
 	set('register_early', time() < $deadline_early_registration);
 	set('register_online', time() < $deadline_registration);

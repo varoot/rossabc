@@ -1,6 +1,6 @@
 <?php
 set('page_title', 'Registration Information');
-$q1 = array('Student (any university)', 'Faculty (any university)', 'Michigan Alumni', 'Professional/Other');
+$q1 = array('Undergraduate Student (any university)', 'Non-Undergraduate Student (any university)', 'Faculty (any university)', 'Michigan Alumni', 'Professional/Other');
 $q2 = array('China', 'Transportation', 'ASEAN (Southeast Asia)');
 $q3 = array('India', 'Japan', 'Technology');
 $q4 = array('Finance', 'Entrepreneurship', 'Korea');

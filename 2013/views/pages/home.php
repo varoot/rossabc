@@ -1,7 +1,3 @@
-<?php
-
-/*
-
 <aside class="register">
 
 {{#register_online}}
@@ -16,6 +12,7 @@ Online registration will be closed by <strong>{{register_deadline}}.</strong> <a
 
 {{/register_online}}
 
+<!--
 <p class="pre-list"><strong>Updates</strong></p>
 
 <ul>
@@ -25,12 +22,10 @@ Online registration will be closed by <strong>{{register_deadline}}.</strong> <a
 	<li>Updated information on <a href="{{baseuri}}logistics#parking">parking</a></li>
 
 </ul>
+-->
 
 </aside>
 
-*/
-
-?>
 
 <article>
 

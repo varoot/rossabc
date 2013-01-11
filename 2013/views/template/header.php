@@ -9,7 +9,7 @@
 		</a>
 		<?php
 			if ($page !== 'home' and $page !== 'register') {
-		/*
+		?>
 		<aside>
 			{{#register_online}}
 			<a href="{{base_uri}}register"><strong>Register now!</strong></a>
@@ -18,7 +18,7 @@
 			Online registration is now closed.
 			{{/register_online}}
 		</aside>
-		*/
+		<?php
 			}
 		?>
 	</div>

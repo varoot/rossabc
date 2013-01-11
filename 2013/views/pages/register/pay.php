@@ -1,15 +1,15 @@
 <?php
 set('page_title', 'Confirm Information');
 
-$fee = array('$5', '$10', '$10', '$10');
+$fee = array('$5', '$10', '$15', '$15', '$15');
 // Regular registration
-$paypalID = array('SZBRFEXW5KNWQ', 'L3Y4GUP6PRRPG', 'L3Y4GUP6PRRPG', 'L3Y4GUP6PRRPG');
+$paypalID = array('QWTZFHWJY42D4', 'SZBRFEXW5KNWQ', 'L3Y4GUP6PRRPG', 'L3Y4GUP6PRRPG', 'L3Y4GUP6PRRPG');
 if ($register_early) {
 	// Early registration
-	$paypalID = array('QWTZFHWJY42D4', '4HBN36NYBSHP4', '4HBN36NYBSHP4', '4HBN36NYBSHP4');
+	// $paypalID = array('QWTZFHWJY42D4', '4HBN36NYBSHP4', '4HBN36NYBSHP4', '4HBN36NYBSHP4');
 }
 
-$q1 = array('Student', 'Faculty', 'Michigan Alumni', 'Professional/Other');
+$q1 = array('Undergraduate Student', 'Non-Undergraduate Student', 'Faculty', 'Michigan Alumni', 'Professional/Other');
 $q2 = array('China', 'Transportation', 'ASEAN (Southeast Asia)');
 $q3 = array('India', 'Japan', 'Technology');
 $q4 = array('Finance', 'Entrepreneurship', 'Korea');

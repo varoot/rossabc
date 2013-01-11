@@ -4,9 +4,9 @@ set('page_title', 'Registration');
 <article>
 <h1>Registration</h1>
 <p class="pre-list">
-Registration is open to the public and required for all conference attendees. The registration fee covers all of the following on Saturday, February 11th, 2012:
+Registration is open to the public and required for all conference attendees. The registration fee covers all of the following on Saturday, February 2nd, 2013:
 </p>
-<ul class="long-list">
+<ul>
 	<li>Access to three panels over the course of the day.</li>
 	<li>Free lunch.</li>
 	<li>Admission to the post-conference networking reception with the panelists.</li>
@@ -22,13 +22,15 @@ Registration is open to the public and required for all conference attendees. Th
 {{/register_early}}
 <p class="pre-list">If you register by <strong>{{register_deadline}}</strong>:</p>
 <ul>
-	<li>$10 for students (from any academic institution)</li>
+	<li>$5 for undergraduate students (from any academic institution)</li>
+	<li>$10 for non-undergraduate students (from any academic institution)</li>
 	<li>$15 for non-students/professionals</li>
 </ul>
 {{/register_online}}
-<p class="pre-list">On the day of the conference, <strong>February 11</strong>:</p>
+<p class="pre-list">On the day of the conference, <strong>February 2</strong>:</p>
 <ul>
-	<li>$15 for students (from any academic institution)</li>
+	<li>$10 for undergraduate students (from any academic institution)</li>
+	<li>$15 for non-undergraduate students (from any academic institution)</li>
 	<li>$20 for non-students/professionals</li>
 </ul>
 {{#register_online}}
