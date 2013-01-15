@@ -1,4 +1,4 @@
 <footer>
 	{{>template/nav}}
-	<div class="copyright">&copy; 2012 Ross School of Business</div>
+	<div class="copyright">&copy; 2013 Ross School of Business</div>
 </footer>

@@ -13,6 +13,12 @@ RewriteBase /rossabc/2013/
 	Deny From All
 </Files>
 
+# Protect database access
+<Files db.sqlite>
+	Order Deny,Allow
+	Deny From All
+</Files>
+
 # Protect lib files from being viewed
 RewriteRule ^(?:lib|views)\b.* index.php/$0 [L]
 

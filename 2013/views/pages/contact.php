@@ -11,7 +11,7 @@ function errorFormat($error) {
 <h1>Contact Us</h1>
 <p>All fields are required</p>
 <?php errorFormat(@$error_all); ?>
-<form method="POST">
+<form method="POST" class="form">
 	<fieldset class="columns wide">
 		<?php errorFormat(@$error['name']); ?>
 		<div>
@@ -40,7 +40,7 @@ function errorFormat($error) {
 		</div>
 	</fieldset>
 	<div class="submit">
-		<input type="submit" value="Send">
+		<input type="submit" value="Send" class="btn btn-primary">
 	</div>
 </form>
 </article>

@@ -40,9 +40,9 @@ The registration button below will take you to a page that will require you to e
 <p>
 <strong>Panels have limited space so register EARLY!</strong>
 </p>
-<form action="{{base_uri}}register/form" class="no-content">
+<form action="{{base_uri}}register/form">
 <div class="submit">
-<input type="submit" value="Register">
+<input type="submit" value="Register" class="btn btn-primary">
 </div>
 </form>
 {{/register_online}}

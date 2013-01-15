@@ -1,10 +1,10 @@
 # Turn on URL rewriting
 RewriteEngine On
 
-RewriteCond %{HTTP_HOST} !=rossabc.com
-RewriteRule ^(.*)$ http://rossabc.com/$1 [QSA,R=301,L]
+# RewriteCond %{HTTP_HOST} !=rossabc.com
+# RewriteRule ^(.*)$ http://rossabc.com/$1 [QSA,R=301,L]
 
-RewriteBase /2012/
+RewriteBase /rossabc/2012/
 
 # Protect hidden files from being viewed
 <Files .*>

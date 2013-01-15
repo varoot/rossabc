@@ -17,6 +17,8 @@ function configure()
 	layout('template.php');
 
 	set('site_title', 'Ross Asia Business Conference');
+	option('db_driver', 'sqlite:db.sqlite');
+	option('paypal_email', 'duykhiem@umich.edu');
 
 	$deadline_early_registration = strtotime('2012-02-08 11:59pm');
 	$deadline_registration = strtotime('2013-02-01 3:00pm');
@@ -25,6 +27,21 @@ function configure()
 	set('register_online', time() < $deadline_registration);
 	set('register_early_deadline', date($date_fmt, $deadline_early_registration));
 	set('register_deadline', date($date_fmt, $deadline_registration));
+
+	$registration_options = array(
+		'q1' => array('Undergraduate Student (any university)', 'Non-Undergraduate Student (any university)', 'Faculty (any university)', 'Michigan Alumni', 'Professional/Other'),
+		'q2' => array('China', 'Transportation', 'ASEAN (Southeast Asia)'),
+		'q3' => array('India', 'Japan', 'Technology'),
+		'q4' => array('Finance', 'Entrepreneurship', 'Korea'),
+		'q5' => array('Yes', 'No'),
+		'q6' => array('Conference Website','Email from the ABC','Email from a friend/professor/club/etc.','Flyer','Asia Business Conference Table','Word of mouth','Facebook','Other, please describe:'),
+	);
+
+	$registration_display = $registration_options;
+	$registration_display['q1'] = array('Undergraduate Student', 'Non-Undergraduate Student', 'Faculty', 'Michigan Alumni', 'Professional/Other');
+
+	set('registration_options', $registration_options);
+	set('registration_display', $registration_display);
 
 	$nav = array(
 		'Home' => '',
@@ -95,7 +112,8 @@ function not_found($errno, $errstr, $errfile=null, $errline=null)
     return render("errors/404.php");
 }
 
-function sendEmail($data) {
+function sendEmail($data)
+{
 	$email_address = 'contact.abc2013@umich.edu';
 	$data['ip_address'] = $_SERVER["REMOTE_ADDR"];
 	$data['user_agent'] = $_SERVER["HTTP_USER_AGENT"];
@@ -115,6 +133,122 @@ function sendEmail($data) {
     "Reply-To: Ross Asia Business Conference <$email_address>\r\n";
 	return mail($data['email'], 'Receipt: '.$data['subject'], partial('emails/receipt.php', $data), $headers);
 }
+
+dispatch_post('/payment-process', 'logPayment');
+	function logPayment()
+	{
+		// STEP 1: Read POST data
+
+		// reading posted data from directly from $_POST causes serialization 
+		// issues with array data in POST
+		// reading raw POST data from input stream instead. 
+		$raw_post_data = file_get_contents('php://input');
+		$raw_post_array = explode('&', $raw_post_data);
+		$myPost = array();
+
+		// Log
+		$f = fopen('payment.txt','a');
+		fwrite($f, 'Log: '.time()."\n");
+		fwrite($f, $raw_post_data."\n");
+		fclose($f);
+
+		foreach ($raw_post_array as $keyval) {
+			$keyval = explode ('=', $keyval);
+			if (count($keyval) == 2)
+			{
+				$myPost[$keyval[0]] = urldecode($keyval[1]);
+			}
+		}
+		// read the post from PayPal system and add 'cmd'
+		$req = 'cmd=_notify-validate';
+		if (function_exists('get_magic_quotes_gpc'))
+		{
+			$get_magic_quotes_exists = true;
+		} 
+		foreach ($myPost as $key => $value) {        
+			if ($get_magic_quotes_exists == true and get_magic_quotes_gpc() == 1)
+			{ 
+				$value = urlencode(stripslashes($value)); 
+			}
+			else
+			{
+				$value = urlencode($value);
+			}
+			$req .= "&$key=$value";
+		}
+
+		// STEP 2: Post IPN data back to paypal to validate
+		$ch = curl_init('https://www.paypal.com/cgi-bin/webscr');
+		curl_setopt($ch, CURLOPT_HTTP_VERSION, CURL_HTTP_VERSION_1_1);
+		curl_setopt($ch, CURLOPT_POST, 1);
+		curl_setopt($ch, CURLOPT_RETURNTRANSFER,1);
+		curl_setopt($ch, CURLOPT_POSTFIELDS, $req);
+		curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, 1);
+		curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, 2);
+		curl_setopt($ch, CURLOPT_FORBID_REUSE, 1);
+		curl_setopt($ch, CURLOPT_HTTPHEADER, array('Connection: Close'));
+
+		// In wamp like environments that do not come bundled with root authority certificates,
+		// please download 'cacert.pem' from "http://curl.haxx.se/docs/caextract.html" and set the directory path 
+		// of the certificate as shown below.
+		// curl_setopt($ch, CURLOPT_CAINFO, dirname(__FILE__) . '/cacert.pem');
+		if( !($res = curl_exec($ch)) ) {
+			// error_log("Got " . curl_error($ch) . " when processing IPN data");
+			curl_close($ch);
+			exit;
+		}
+		curl_close($ch);
+
+		// STEP 3: Inspect IPN validation result and act accordingly
+ 
+		if (strcmp ($res, "VERIFIED") == 0) {
+			// check whether the payment_status is Completed
+			// check that txn_id has not been previously processed
+			// check that receiver_email is your Primary PayPal email
+			// check that payment_amount/payment_currency are correct
+			// process payment
+
+			// assign posted variables to local variables
+			$item_name = $_POST['item_name'];
+			$item_number = $_POST['item_number'];
+			$payment_status = $_POST['payment_status'];
+			$payment_amount = $_POST['mc_gross'];
+			$payment_currency = $_POST['mc_currency'];
+			$txn_id = $_POST['txn_id'];
+			$receiver_email = $_POST['receiver_email'];
+			$payer_email = $_POST['payer_email'];
+
+			if ( ! ipn_check($txn_id, $raw_post_data))
+			{
+				return 'Payment already processed';
+			}
+
+			if ($receiver_email != option('paypal_email'))
+			{
+				return 'Payment to wrong account';
+			}
+
+			$unique_id = $_POST['custom'];
+
+			$status = 99;
+			if ($payment_status == 'Completed')
+			{
+				$status = 1;
+			}
+
+			if ($payment_status == 'Refunded')
+			{
+				$status = 2;
+			}
+
+			registration_status($unique_id, $status);
+
+			return 'Payment Processed';
+		} else if (strcmp ($res, "INVALID") == 0) {
+			// log for manual investigation
+			return 'Invalid Payment';
+		}
+	}
 
 dispatch('^/panels/([-\w]+)', 'panel');
 	function panel()
@@ -209,31 +343,32 @@ dispatch_post('/register/list', 'registerList');
 		set('uri', 'register/list');
 		set('page', 'register');
 		set('pwd', $_POST['pwd']);
-		if ($_POST['pwd'] != 'aBC2012!') {
+		if (hash('sha512', $_POST['pwd']) != '57bc880d9629245c7ae239ab3fe0e8bc63ca0d46e9300751d24200cefa216d1cdaa9a0960eb2aed8310a2cd5272ea039bad781f1e7f9317cfa331a55d06abeae') {
 			return render('pages/register/list.php');
 		}
-		$f = file('log.txt');
+
 		$list = array();
-		foreach ($f as $entry) {
+		foreach (registration_find_all() as $row)
+		{
+			$entry = $row['data'];
 			if (empty($entry)) continue;
+
+			// Only list people who paid
+			if ($row['status'] != 1) continue;
+
 			$data = @unserialize($entry);
-			if (!empty($data['timestamp'])) {
-				$data['time'] = date('Y-m-d g:ia', $data['timestamp']);
+			if ( ! empty($row['timestamp']))
+			{
+				$data['time'] = date('Y-m-d g:ia', $row['timestamp']);
 			}
-			$q1 = array('Student', 'Faculty', 'Michigan Alumni', 'Professional/Other');
-			$q2 = array('China', 'Energy', 'ASEAN');
-			$q3 = array('Korea', 'Finance', 'Entrepreneurship', 'CSR');
-			$q4 = array('India', 'Japan', 'Technology');
-			$q5 = array('Yes', 'No');
-			if ($data['timestamp'] > strtotime('2012-01-27')) {
-				$q3 = array('Finance', 'Entrepreneurship', 'CSR');
-				$q4 = array('India', 'Japan & Korea', 'Technology');
-			}
-			$data['type'] = $q1[$data['q1']-1];
-			$data['panel1'] = $q2[$data['q2']-1];
-			$data['panel2'] = $q3[$data['q3']-1];
-			$data['panel3'] = $q4[$data['q4']-1];
-			$data['network'] = $q5[$data['q5']-1];
+
+			$display = set('registration_display');
+
+			$data['type'] = $display['q1'][$data['q1']-1];
+			$data['panel1'] = $display['q2'][$data['q2']-1];
+			$data['panel2'] = $display['q3'][$data['q3']-1];
+			$data['panel3'] = $display['q4'][$data['q4']-1];
+			$data['network'] = $display['q5'][$data['q5']-1];
 			$hash = $data['lastname'].'-'.$data['firstname'].'-'.$data['email'];
 			$list[$hash] = $data;
 		}
@@ -246,6 +381,11 @@ dispatch_post('/register/list', 'registerList');
 			$count++;
 			$sorted_list[] = $l;
 		}
+
+		if (count($list) == 0)
+		{
+			set('emptylist', true);
+		}
 		
 		set('list', $sorted_list);
 		return render('pages/register/list.php');
@@ -255,6 +395,16 @@ dispatch_post('/register/form', 'checkRegister');
 	function checkRegister()
 	{
 		$form = $_POST;
+		$edit = false;
+
+		if ( ! empty($_POST['edit']))
+		{
+			// Load data from database
+			$edit = true;
+			$unique_id = $_POST['edit'];
+			$form = registration_load($unique_id);
+		}
+
 		$error = array();
 		for ($i = 1; $i <= 6; $i++) {
 			if (empty($form['q'.$i])) {
@@ -271,17 +421,26 @@ dispatch_post('/register/form', 'checkRegister');
 		set('error', $error);
 		set('uri', 'register/form');
 		set('page', 'register');
-		if (empty($error)) {
-			$f = fopen('log.txt','a');
-			$form['timestamp'] = time();
-			$form['ip'] = $_SERVER["REMOTE_ADDR"];
-			fwrite($f, serialize($form)."\n");
-			fclose($f);
+		if (empty($error) and ! $edit) {
+			if ( ! empty($form['unique_id']))
+			{
+				$unique_id = $form['unique_id'];
+				unset($form['unique_id']);
+				registration_save($form, $unique_id);
+			}
+			else
+			{
+				$unique_id = registration_save($form);
+			}
+			set('unique_id', $unique_id);
 			return render('pages/register/pay.php');
 		} else {
+			if ($edit)
+			{
+				set('unique_id', $unique_id);
+			}
 			return render('pages/register/form.php');
 		}
 	}
-
 
 run();

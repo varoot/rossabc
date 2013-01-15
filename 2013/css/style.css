@@ -569,12 +569,12 @@ ul.radio li {
 }
 input[type=radio], input[type=checkbox] { margin-right:1ex; }
 input.other { margin-left:1ex; }
-input[type=submit] {
-  background:#ffdd33;
-  background-image:linear-gradient(center bottom,#ffcc00 0%,#ffee66 100%);
-  background-image:-webkit-gradient(linear,left bottom,left top,color-stop(0,#ffcc00),color-stop(1,#ffee66));
-  background-image:-moz-linear-gradient(center bottom,#ffcc00 0%,#ffee66 100%);
-  border:1px solid #b39500;
+.btn {
+  background:#dddddd;
+  background-image:linear-gradient(center bottom,#cccccc 0%,#eeeeee 100%);
+  background-image:-webkit-gradient(linear,left bottom,left top,color-stop(0,#cccccc),color-stop(1,#eeeeee));
+  background-image:-moz-linear-gradient(center bottom,#cccccc 0%,#eeeeee 100%);
+  border:1px solid #9d9d9d;
   border:1px solid rgba(0,0,0,0.25);
   color:#444444;
   padding:0.25em 1em;
@@ -589,30 +589,37 @@ input[type=submit] {
   -moz-transition:all 0.2s ease-out;
   transition:all 0.2s ease-out;
 }
-input[type=submit]:hover {
-  background:#ffe14d;
-  background-image:linear-gradient(center bottom,#ffd11a 0%,#fff180 100%);
-  background-image:-webkit-gradient(linear,left bottom,left top,color-stop(0,#ffd11a),color-stop(1,#fff180));
-  background-image:-moz-linear-gradient(center bottom,#ffd11a 0%,#fff180 100%);
+.btn:hover {
+  background:#eaeaea;
+  background-image:linear-gradient(center bottom,#d9d9d9 0%,#fbfbfb 100%);
+  background-image:-webkit-gradient(linear,left bottom,left top,color-stop(0,#d9d9d9),color-stop(1,#fbfbfb));
+  background-image:-moz-linear-gradient(center bottom,#d9d9d9 0%,#fbfbfb 100%);
   color:#1e1e1e;
   -webkit-transition:all 0.2s ease-out;
   -moz-transition:all 0.2s ease-out;
   transition:all 0.2s ease-out;
 }
-form {
+.btn.btn-primary {
+  background:#ffdd33;
+  background-image:linear-gradient(center bottom,#ffcc00 0%,#ffee66 100%);
+  background-image:-webkit-gradient(linear,left bottom,left top,color-stop(0,#ffcc00),color-stop(1,#ffee66));
+  background-image:-moz-linear-gradient(center bottom,#ffcc00 0%,#ffee66 100%);
+  border:1px solid #b39500;
+}
+.btn.btn-primary:hover {
+  background:#ffe14d;
+  background-image:linear-gradient(center bottom,#ffd11a 0%,#fff180 100%);
+  background-image:-webkit-gradient(linear,left bottom,left top,color-stop(0,#ffd11a),color-stop(1,#fff180));
+  background-image:-moz-linear-gradient(center bottom,#ffd11a 0%,#fff180 100%);
+}
+.form {
   border:1px solid #dddddd;
   background:#f9f9f9;
   padding:3% 4%;
   margin-top:1em;
 }
-form dl { font-size:16px; }
-form.no-content {
-  border:none;
-  background:none;
-  padding:0;
-  margin:0;
-}
-form .error {
+.form dl { font-size:16px; }
+.form .error {
   background:#aa0000;
   color:#ffffff;
   font-weight:600;
@@ -623,35 +630,35 @@ form .error {
   border-radius:4px;
   border:1px solid #cc0000;
 }
-form .question-block {
+.form .question-block {
   padding:2em 2em 1em;
   border-bottom:1px solid #dddddd;
   text-align:left;
 }
-form .question-block .question {
+.form .question-block .question {
   margin-left:-2em;
   color:#66aacc;
   font-weight:600;
 }
-form fieldset.columns > div { margin-bottom:1em; }
-form fieldset.columns > div > label {
+.form fieldset.columns > div { margin-bottom:1em; }
+.form fieldset.columns > div > label {
   display:block;
   margin-right:1ex;
 }
-form fieldset.columns > div > label:after { content:':'; }
-form fieldset.columns > div input[type=text], form fieldset.columns > div input[type=email] {
+.form fieldset.columns > div > label:after { content:':'; }
+.form fieldset.columns > div input[type=text], .form fieldset.columns > div input[type=email] {
   width:100%;
   max-width:50ex;
 }
-form fieldset.columns > div textarea {
+.form fieldset.columns > div textarea {
   width:100%;
   max-width:59ex;
 }
-form .submit {
+.submit {
   margin-top:1em;
   text-align:center;
 }
-form .submit input[type=submit] { font-size:18px; }
+.submit input[type=submit] { font-size:18px; }
 table.admin { font-size:14px; }
 table.admin th, table.admin td {
   padding:0.25em 0.5em;
@@ -733,12 +740,12 @@ table.admin th { background:#eeeeee; }
     margin:6px 0 1.5em;
   }
   div.profile p, div.profile ul { margin-left:240px; }
-  form fieldset.columns > div > label {
+  .form fieldset.columns > div > label {
     display:inline-block;
     width:9em;
     text-align:right;
   }
-  form fieldset.columns.wide > div > label {
+  .form fieldset.columns.wide > div > label {
     display:block;
     width:auto;
     text-align:left;

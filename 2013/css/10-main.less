@@ -569,9 +569,9 @@ input.other {
 	margin-left: 1ex;
 }
 
-input[type=submit] {
-	.gradient(#fd3, #fc0, #fe6);
-	border: 1px solid darken(#fd3, 25%);
+.btn {
+	.gradient(#ddd, #ccc, #eee);
+	border: 1px solid darken(#ddd, 25%);
 	border: 1px solid rgba(0, 0, 0, 0.25);
 	color: @body;
 	padding: 0.25em 1em;
@@ -581,13 +581,22 @@ input[type=submit] {
 	.transition(0.2s);
 	
 	&:hover {
-		.gradient(lighten(#fd3, 5%), lighten(#fc0, 5%), lighten(#fe6, 5%));
+		.gradient(lighten(#ddd, 5%), lighten(#ccc, 5%), lighten(#eee, 5%));
 		color: darken(@body, 15%);
 		.transition(0.2s);
 	}
+
+	&.btn-primary {
+		.gradient(#fd3, #fc0, #fe6);
+		border: 1px solid darken(#fd3, 25%);
+		
+		&:hover {
+			.gradient(lighten(#fd3, 5%), lighten(#fc0, 5%), lighten(#fe6, 5%));
+		}
+	}
 }
 
-form {
+.form {
 	border: 1px solid #ddd;
 	background: #f9f9f9;
 	padding: 3% 4%;
@@ -595,13 +604,6 @@ form {
 	
 	dl {
 		font-size: @bodySize;
-	}
-	
-	&.no-content {
-		border: none;
-		background: none;
-		padding: 0;
-		margin: 0;
 	}
 	
 	.error {
@@ -625,6 +627,7 @@ form {
 			font-weight: @semibold;
 		}
 	}
+
 	fieldset.columns {
 		> div {
 			margin-bottom: 1em;
@@ -649,12 +652,13 @@ form {
 			}
 		}
 	}
-	.submit {
-		margin-top: 1em;
-		text-align: center;
-		input[type=submit] {
-			font-size: @h3size;
-		}
+}
+
+.submit {
+	margin-top: 1em;
+	text-align: center;
+	input[type=submit] {
+		font-size: @h3size;
 	}
 }
 

@@ -1,11 +1,5 @@
 <?php
 set('page_title', 'Registration Information');
-$q1 = array('Undergraduate Student (any university)', 'Non-Undergraduate Student (any university)', 'Faculty (any university)', 'Michigan Alumni', 'Professional/Other');
-$q2 = array('China', 'Transportation', 'ASEAN (Southeast Asia)');
-$q3 = array('India', 'Japan', 'Technology');
-$q4 = array('Finance', 'Entrepreneurship', 'Korea');
-$q5 = array('Yes', 'No');
-$q6 = array('Conference Website','Email from the ABC','Email from a friend/professor/club/etc.','Flyer','Asia Business Conference Table','Word of mouth','Facebook','Other, please describe:');
 
 function radioInput($name, $options, $form=array()) {
 	echo '<ul class="radio">';
@@ -39,7 +33,7 @@ function errorFormat($error) {
 <article>
 <h1>Registration Information</h1>
 <p>Please answer all questions</p>
-<form method="POST">
+<form method="POST" class="form">
 	<fieldset class="columns">
 		<?php errorFormat(@$error['firstname']); ?>
 		<div><label for="firstname">First Name</label><input id="firstname" name="firstname" type="text" size="40" value="<?php echo htmlspecialchars(@$form['firstname']) ?>" required></div>
@@ -52,7 +46,7 @@ function errorFormat($error) {
 		<?php errorFormat(@$error['q1']); ?>
 		<div class="question">Q1. Are you currently a Student, Faculty Member, Alumni, or Professional?</div>
 		<?php
-		radioInput('q1', $q1, @$form);
+		radioInput('q1', $registration_options['q1'], @$form);
 		?>
 		<p><strong>Note: Students will need to show their Student ID when picking up their name tags the day of the conference.</strong></p>
 	</div>
@@ -60,7 +54,7 @@ function errorFormat($error) {
 		<?php errorFormat(@$error['q2']); ?>
 		<div class="question">Q2. Which panel do you plan to attend during the first panel session (10am – 11:30am)?</div>
 		<?php
-		radioInput('q2', $q2, @$form);
+		radioInput('q2', $registration_options['q2'], @$form);
 		?>
 		<p><strong>Note: Please choose carefully as other panels may fill up, and you may not be able to switch.</strong></p>
 	</div>
@@ -68,32 +62,33 @@ function errorFormat($error) {
 		<?php errorFormat(@$error['q3']); ?>
 		<div class="question">Q3. Which panel do you plan to attend during the second panel session (12:45pm – 2:15pm)?</div>
 		<?php
-		radioInput('q3', $q3, @$form);
+		radioInput('q3', $registration_options['q3'], @$form);
 		?>
 	</div>
 	<div class="question-block">
 		<?php errorFormat(@$error['q4']); ?>
 		<div class="question">Q4. Which panel do you plan to attend during the third panel session (2:30pm – 4:00pm)?</div>
 		<?php
-		radioInput('q4', $q4, @$form);
+		radioInput('q4', $registration_options['q4'], @$form);
 		?>
 	</div>
 	<div class="question-block">
 		<?php errorFormat(@$error['q5']); ?>
 		<div class="question">Q5. Do you plan to attend the post-conference networking reception?</div>
 		<?php
-		radioInput('q5', $q5, @$form);
+		radioInput('q5', $registration_options['q5'], @$form);
 		?>
 	</div>
 	<div class="question-block">
 		<?php errorFormat(@$error['q6']); ?>
 		<div class="question">Q6. How did you hear about the Asia Business Conference? (check all that apply)</div>
 		<?php
-		checkboxes('q6', $q6, @$form, true);
+		checkboxes('q6', $registration_options['q6'], @$form, true);
 		?>
 	</div>
 	<div class="submit">
-		<input type="submit" value="Next">
+		<input type="hidden" name="unique_id" value="{{unique_id}}">
+		<input type="submit" value="Next" class="btn btn-primary">
 	</div>
 </form>
 </article>

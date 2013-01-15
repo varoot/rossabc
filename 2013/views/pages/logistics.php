@@ -25,7 +25,7 @@ set('page_title', 'Logistics');
 		<li><a href="#hotels">Hotels</a></li>
 	</ul>
 	<div id="drive">
-		<a name="drive"><h2>Driving</h2></a>
+		<h2>Driving</h2>
 		<h3>From Detroit Metropolitan Airport</h3>
 		<p>Detroit Metro Airport (DTW) is located about 25 miles (40 km) east of Ann Arbor on Interstate-94. When exiting the airport, take the I-94 W Chicago ramp. Continue on I-94 West to the State Street Exit, #177. Turn right (north) onto State Street, then travel about two miles to the intersection of State and Hill streets. Turn right onto Hill Street and proceed to Tappan Street. Turn left onto Tappan.</p>
         
@@ -36,12 +36,12 @@ set('page_title', 'Logistics');
 		<p>From I-94, take the State Street Exit, #177. Turn right (north) when traveling from Detroit, or left (north) when traveling from Chicago. Travel about two miles to the intersection of State and Hill streets, then turn right onto Hill Street. Proceed to Tappan Street and turn left.</p>
 	</div>
 	<div id="transport">
-		<a name="transport"><h2>Taxi Services</h2></a>
+		<h2>Taxi Services</h2>
 		<dl><dt><a href="http://www.metrocars.com/" target="_new">MetroCar</a></dt><dd>1-800-456-1701</dd></dl>
 		<dl><dt><a href="http://www.metroairporttaxi.org/" target="_new">Metro Airport Taxi</a></dt><dd>800-745-5191</dd></dl>
 	</div>
 	<div id="parking">
-        <a name="parking"><h2>Parking</h2></a>
+        <h2>Parking</h2>
 		<p>Metered parking is available on the east (East University St.) and west sides (Tappan St.) of the building. Street parking may be available in the student neighborhood south of the building. Two parking structures are available for your usage.
 		<h3>Hill Parking Structure</h3>
 		<p>There is a parking structure on the south side of the Ross School of Business, directly attached to the building. The entrance can be found on Hill Street, between Tappan and East University. Parking will be available only if you arrive between 9am and 1pm for $10 (all day pass).</p>
@@ -50,7 +50,7 @@ set('page_title', 'Logistics');
 		<p>To get to Ross from the Forest Parking Structure, walk west on Willard until you reach E. University. Take a left on E. University and proceed 200 yards to the building. You may enter through the E. University entrance or take the sidewalk through to the Tappan St. entrance.</p>
 	</div>
 	<div id="hotels">
-		<a name="hotels"><h2>Hotels</h2></a>
+		<h2>Hotels</h2>
 		<dl><dt><a href="http://www.belltowerhotel.com/" target="_new">Bell Tower Hotel</a></dt><dd>1-734-769-3010</dd></dl>
 		<dl><dt><a href="http://www.campusinn.com/" target="_new">Campus Inn</a></dt><dd>1-734-633-2818</dd></dl>
 		<dl><dt><a href="http://www.ichotelsgroup.com/h/d/cw/1/en/hotel/dttaa" target="_new">Candlewood Suites</a></dt><dd>1-800-666-8693</dd></dl>
