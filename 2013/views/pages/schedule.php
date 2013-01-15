@@ -48,15 +48,15 @@ set('page_title', 'Schedule');
 		</tr>
 		<tr role="rowgroup" class="multirows">
 			<td rowspan="3">10:00 – 11:30am</td>
-			<td>China Panel</td>
+			<td><a href="{{base_uri}}panels/china">China Panel</a></td>
 			<td>R2210</td>
 		</tr>
 		<tr>
-			<td>Transportation and Energy Panel</td>
+			<td><a href="{{base_uri}}panels/transportation-and-energy">Transportation and Energy Panel</a></td>
 			<td>R2220</td>
 		</tr>
 		<tr class="lastrow">
-			<td>ASEAN (Southeast Asia) Panel</td>
+			<td><a href="{{base_uri}}panels/asean">ASEAN (Southeast Asia) Panel</a></td>
 			<td>R2230</td>
 		</tr>
 		<tr role="rowgroup">
@@ -66,28 +66,28 @@ set('page_title', 'Schedule');
 		</tr>
 		<tr role="rowgroup" class="multirows">
 			<td rowspan="3">12:45 – 2:15pm</td>
-			<td>India Panel</td>
+			<td><a href="{{base_uri}}panels/india">India Panel</a></td>
 			<td>R2210</td>
 		</tr>
 		<tr>
-			<td>Japan Panel</td>
+			<td><a href="{{base_uri}}panels/japan">Japan Panel</a></td>
 			<td>R2220</td>
 		</tr>
 		<tr class="lastrow">
-			<td>Technology Panel</td>
+			<td><a href="{{base_uri}}panels/technology">Technology Panel</a></td>
 			<td>R2230</td>
 		</tr>
 		<tr role="rowgroup" class="multirows">
 			<td rowspan="3">2:30 – 4:00pm</td>
-			<td>Finance Panel</td>
+			<td><a href="{{base_uri}}panels/finance">Finance Panel</a></td>
 			<td>R2210</td>
 		</tr>
 		<tr>
-			<td>Entrepreneurship Panel</td>
+			<td><a href="{{base_uri}}panels/entrepreneurship">Entrepreneurship Panel</a></td>
 			<td>R2220</td>
 		</tr>
 		<tr class="lastrow">
-			<td>Korea Panel</td>
+			<td><a href="{{base_uri}}panels/korea">Korea Panel</a></td>
 			<td>R2230</td>
 		</tr>
 		<tr role="rowgroup">

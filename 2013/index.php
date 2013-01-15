@@ -61,11 +61,11 @@ function configure()
 		'Register'=>'register',
 		'ASEAN Panel'=>'panels/asean',
 		'China Panel'=>'panels/china',
-		'Corporate Social Responsibility Panel'=>'panels/csr',
-		'Energy & Environment Panel'=>'panels/energy',
+		'Transportation and Energy Panel'=>'panels/transportation-and-energy',
 		'Entrepreneurship Panel'=>'panels/entrepreneurship',
 		'Finance Panel'=>'panels/finance',
-		'Japan & Korea'=>'panels/japan-korea',
+		'Japan Panel'=>'panels/japan',
+		'Korea Panel'=>'panels/korea',
 		'India Panel'=>'panels/india',
 		'Technology Panel'=>'panels/technology',
 	);
@@ -259,6 +259,7 @@ dispatch('^/panels/([-\w]+)', 'panel');
 		if (!is_file('views/panels/'.$page.'.php')) {
 			halt(NOT_FOUND);
 		}
+		set('short_panel', false);
 		set('panel_content', partial('panels/'.$page.'.php'));
 		set('page_title', set('panel_title').' Panel');
 		return render('template/panel.php');

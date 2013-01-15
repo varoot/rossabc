@@ -16,6 +16,7 @@ foreach ($speakers as $p) {
 	echo partial('profiles/'.$p.'.php');
 }
 
+/*
 if ($short_panel) {
 	echo '</ul><h3>Moderator</h3><ul class="moderator">';
 }
@@ -30,6 +31,7 @@ foreach ($moderators as $p) {
 	}
 	echo partial('profiles/'.$p.'.php');
 }
+*/
 
 if ($short_panel) {
 	echo '</ul>';
