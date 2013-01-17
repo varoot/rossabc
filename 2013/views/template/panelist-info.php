@@ -1,9 +1,6 @@
 {{#short_panel}}
-<?php /* <li><strong><a href="{{base_uri}}panels/{{profile_panel_id}}#{{profile_id}}">{{profile_name}},</a></strong> {{profile_title}}</li> */ ?>
-<li><strong>{{profile_name}},</strong> {{profile_title}}</li>
+<li><strong>{{#profile_content}}<a href="{{base_uri}}panels/{{profile_panel_id}}#{{profile_id}}">{{/profile_content}}{{profile_name}},{{#profile_content}}</a>{{/profile_content}}</strong> {{profile_title}}</li>
 {{/short_panel}}
-<?php
-/*
 {{^short_panel}}
 <section id="{{profile_id}}">
 	<hgroup>
@@ -16,5 +13,3 @@
 	</div>
 </section>
 {{/short_panel}}
-*/
-?>
