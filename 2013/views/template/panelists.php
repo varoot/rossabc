@@ -16,22 +16,23 @@ foreach ($speakers as $p) {
 	echo partial('profiles/'.$p.'.php');
 }
 
-/*
-if ($short_panel) {
-	echo '</ul><h3>Moderator</h3><ul class="moderator">';
-}
-
-set('profile_role', 'Moderator');
-foreach ($moderators as $p) {
-	if ($p === FALSE) {
-		if ($short_panel) {
-			echo '<li><em>Coming Soon</em></li>';
-		}
-		continue;
+if ( ! empty($moderators))
+{
+	if ($short_panel) {
+		echo '</ul><h3>Moderator</h3><ul class="moderator">';
 	}
-	echo partial('profiles/'.$p.'.php');
+
+	set('profile_role', 'Moderator');
+	foreach ($moderators as $p) {
+		if ($p === FALSE) {
+			if ($short_panel) {
+				echo '<li><em>Coming Soon</em></li>';
+			}
+			continue;
+		}
+		echo partial('profiles/'.$p.'.php');
+	}
 }
-*/
 
 if ($short_panel) {
 	echo '</ul>';

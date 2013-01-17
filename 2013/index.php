@@ -32,13 +32,14 @@ function configure()
 		'q1' => array('Undergraduate Student (any university)', 'Non-Undergraduate Student (any university)', 'Faculty (any university)', 'Michigan Alumni', 'Professional/Other'),
 		'q2' => array('China', 'Transportation', 'ASEAN (Southeast Asia)'),
 		'q3' => array('India', 'Japan', 'Technology'),
-		'q4' => array('Finance', 'Entrepreneurship', 'Korea'),
+		'q4' => array('Finance', 'Entrepreneurship'),
 		'q5' => array('Yes', 'No'),
 		'q6' => array('Conference Website','Email from the ABC','Email from a friend/professor/club/etc.','Flyer','Asia Business Conference Table','Word of mouth','Facebook','Other, please describe:'),
 	);
 
 	$registration_display = $registration_options;
 	$registration_display['q1'] = array('Undergraduate Student', 'Non-Undergraduate Student', 'Faculty', 'Michigan Alumni', 'Professional/Other');
+	$registration_display['q4'] = array('Finance', 'Entrepreneurship', 'Korea'); // Korea got cancelled
 
 	set('registration_options', $registration_options);
 	set('registration_display', $registration_display);
@@ -65,7 +66,6 @@ function configure()
 		'Entrepreneurship Panel'=>'panels/entrepreneurship',
 		'Finance Panel'=>'panels/finance',
 		'Japan Panel'=>'panels/japan',
-		'Korea Panel'=>'panels/korea',
 		'India Panel'=>'panels/india',
 		'Technology Panel'=>'panels/technology',
 	);

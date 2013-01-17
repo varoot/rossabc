@@ -2,7 +2,7 @@
 set('profile_panel_id', 'japan');
 set('panel_title', 'Japan');
 set('speakers', array('saimyo-hitoshi', 'nakahama'));
-set('moderators', array(false));
+set('moderators', false);
 ?>
 {{#short_panel}}<a href="{{base_uri}}panels/{{profile_panel_id}}">{{/short_panel}}
 <div class="image"><img src="{{base_uri}}images/panels/japan.jpg" width="200" height="150" alt="Japan panel"></div>

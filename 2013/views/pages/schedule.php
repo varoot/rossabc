@@ -21,8 +21,8 @@ set('page_title', 'Schedule');
 	<tbody>
 		<tr role="rowgroup">
 			<td>5:00 – 6:30pm</td>
-			<td>Keynote</td>
-			<td>TBD</td>
+			<td><a href="{{base_uri}}keynote">Keynote Speaker: G. Mustafa Mohatarem</a></td>
+			<td>Blau Auditorium</td>
 		</tr>
 	</tbody>
 </table>
@@ -78,17 +78,13 @@ set('page_title', 'Schedule');
 			<td>R2230</td>
 		</tr>
 		<tr role="rowgroup" class="multirows">
-			<td rowspan="3">2:30 – 4:00pm</td>
+			<td rowspan="2">2:30 – 4:00pm</td>
 			<td><a href="{{base_uri}}panels/finance">Finance Panel</a></td>
 			<td>R2210</td>
 		</tr>
-		<tr>
+		<tr class="lastrow">
 			<td><a href="{{base_uri}}panels/entrepreneurship">Entrepreneurship Panel</a></td>
 			<td>R2220</td>
-		</tr>
-		<tr class="lastrow">
-			<td><a href="{{base_uri}}panels/korea">Korea Panel</a></td>
-			<td>R2230</td>
 		</tr>
 		<tr role="rowgroup">
 			<td>4:00 – 5:00pm</td>

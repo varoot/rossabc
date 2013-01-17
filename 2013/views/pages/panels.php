@@ -15,9 +15,6 @@ set('short_panel', true);
 	{{>panels/japan}}
 </div>
 <div class="panel">
-	{{>panels/korea}}
-</div>
-<div class="panel">
 	{{>panels/india}}
 </div>
 <div class="panel">

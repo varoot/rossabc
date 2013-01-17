@@ -2,7 +2,7 @@
 set('profile_panel_id', 'india');
 set('panel_title', 'India');
 set('speakers', array('angela-chitkara', 'alex-berlin'));
-set('moderators', array(false));
+set('moderators', false);
 ?>
 {{#short_panel}}<a href="{{base_uri}}panels/{{profile_panel_id}}">{{/short_panel}}
 <div class="image"><img src="{{base_uri}}images/panels/{{profile_panel_id}}.jpg" width="200" height="150" alt="{{panel_title}} panel"></div>
