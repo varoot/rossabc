@@ -555,9 +555,20 @@ address {
 .tabs > div h3 { font-size:18px; }
 .sponsors {
   border-bottom:1px solid #cccccc;
+  list-style:none;
   padding:1em 0;
 }
-.sponsors img { margin:0 2em 1em 0; }
+.sponsors li {
+  display:inline-block;
+  margin:1em 3em 2em 0;
+  max-width:100%;
+  white-space:nowrap;
+}
+.sponsors img {
+  border:none;
+  margin:0;
+  max-width:100%;
+}
 .sponsors .description { font-size:14px; }
 ul.radio {
   padding:0.25em 0;
@@ -659,12 +670,14 @@ input.other { margin-left:1ex; }
   text-align:center;
 }
 .submit input[type=submit] { font-size:18px; }
-table.admin { font-size:14px; }
+table.admin { margin-top:1em; }
 table.admin th, table.admin td {
   padding:0.25em 0.5em;
   border:1px solid #dddddd;
+  text-align:left;
 }
 table.admin th { background:#eeeeee; }
+table.admin.admin-tiny { font-size:13px; }
 @media only screen and (min-width: 480px) {
   header .logo {
     background:transparent;

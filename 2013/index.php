@@ -13,6 +13,8 @@ function configure()
 	}
 	option('base_uri', $base_path);
 	set('base_uri', $base_path);
+	set('site_domain', 'http://rossabc.com');
+	option('contact_email', 'contact.abc2013@umich.edu');
 
 	layout('template.php');
 
@@ -30,7 +32,7 @@ function configure()
 
 	$registration_options = array(
 		'q1' => array('Undergraduate Student (any university)', 'Non-Undergraduate Student (any university)', 'Faculty (any university)', 'Michigan Alumni', 'Professional/Other'),
-		'q2' => array('China', 'Transportation', 'ASEAN (Southeast Asia)'),
+		'q2' => array('China', 'Transportation and Energy', 'ASEAN (Southeast Asia)'),
 		'q3' => array('India', 'Japan', 'Technology'),
 		'q4' => array('Finance', 'Entrepreneurship'),
 		'q5' => array('Yes', 'No'),
@@ -41,8 +43,16 @@ function configure()
 	$registration_display['q1'] = array('Undergraduate Student', 'Non-Undergraduate Student', 'Faculty', 'Michigan Alumni', 'Professional/Other');
 	$registration_display['q4'] = array('Finance', 'Entrepreneurship', 'Korea'); // Korea got cancelled
 
+	$registration_internal = $registration_display;
+	$registration_internal['q1'] = array('Udg', 'Non-Udg', 'Faculty', 'Alumni', 'Other');
+	$registration_internal['q2'] = array('China', 'Energy', 'ASEAN');
+	$registration_internal['q3'] = array('India', 'Japan', 'Tech');
+	$registration_internal['q4'] = array('Finance', 'Entrepreneur', 'Korea'); // Korea got cancelled
+	$registration_internal['q5'] = array('✓', '');
+
 	set('registration_options', $registration_options);
 	set('registration_display', $registration_display);
+	set('registration_internal', $registration_internal);
 
 	$nav = array(
 		'Home' => '',
@@ -114,10 +124,29 @@ function not_found($errno, $errstr, $errfile=null, $errline=null)
 
 function sendEmail($data)
 {
-	$email_address = 'contact.abc2013@umich.edu';
+	$email_address = option('contact_email');
 	$data['ip_address'] = $_SERVER["REMOTE_ADDR"];
 	$data['user_agent'] = $_SERVER["HTTP_USER_AGENT"];
 	$data['message'] = str_replace("\r\n", "\n", $data['message']);
+	
+	$name = preg_replace('/[^a-zA-Z0-9 ]/', '', $data['name']);
+	
+	// Send an email to Ross ABC
+	$headers = "From: $name <{$data['email']}>\r\n".
+    "Reply-To: $name <{$data['email']}>\r\n";
+	if (!mail($email_address, $data['subject'], partial('emails/query.php', $data), $headers)) {
+		return false;
+	}
+	
+	// Send a receipt to the sender
+	$headers = "From: Ross Asia Business Conference <$email_address>\r\n".
+    "Reply-To: Ross Asia Business Conference <$email_address>\r\n";
+	return mail($data['email'], 'Receipt: '.$data['subject'], partial('emails/receipt.php', $data), $headers);
+}
+
+function confirmationEmail($data)
+{
+	$email_address = option('contact_email');
 	
 	$name = preg_replace('/[^a-zA-Z0-9 ]/', '', $data['name']);
 	
@@ -348,6 +377,16 @@ dispatch_post('/register/list', 'registerList');
 			return render('pages/register/list.php');
 		}
 
+		$display = set('registration_display');
+		$internal = set('registration_internal');
+
+		$types = $display['q1'];
+		$panels = array_merge($display['q2'], $display['q3'], $display['q4']);
+		$panel_stats = array_fill_keys($panels, 0);
+
+		$network_count = 0;
+		$registrant_stats = array_fill_keys($types, 0);
+
 		$list = array();
 		foreach (registration_find_all() as $row)
 		{
@@ -360,18 +399,30 @@ dispatch_post('/register/list', 'registerList');
 			$data = @unserialize($entry);
 			if ( ! empty($row['timestamp']))
 			{
-				$data['time'] = date('Y-m-d g:ia', $row['timestamp']);
+				$data['time'] = date('M j, g:ia', $row['timestamp']);
 			}
 
-			$display = set('registration_display');
-
-			$data['type'] = $display['q1'][$data['q1']-1];
-			$data['panel1'] = $display['q2'][$data['q2']-1];
-			$data['panel2'] = $display['q3'][$data['q3']-1];
-			$data['panel3'] = $display['q4'][$data['q4']-1];
-			$data['network'] = $display['q5'][$data['q5']-1];
+			$data['type'] = $internal['q1'][$data['q1']-1];
+			$data['panel1'] = $internal['q2'][$data['q2']-1];
+			$data['panel2'] = $internal['q3'][$data['q3']-1];
+			$data['panel3'] = $internal['q4'][$data['q4']-1];
+			$data['network'] = $internal['q5'][$data['q5']-1];
 			$hash = $data['lastname'].'-'.$data['firstname'].'-'.$data['email'];
 			$list[$hash] = $data;
+
+			// Count registrant stats
+			$registrant_stats[$display['q1'][$data['q1']-1]]++;
+
+			// Count panel stats
+			$panel_stats[$display['q2'][$data['q2']-1]]++;
+			$panel_stats[$display['q3'][$data['q3']-1]]++;
+			$panel_stats[$display['q4'][$data['q4']-1]]++;
+
+			// Count Networking
+			if ($data['q5'] == 1)
+			{
+				$network_count++;
+			}
 		}
 		
 		//ksort($list);
@@ -389,6 +440,9 @@ dispatch_post('/register/list', 'registerList');
 		}
 		
 		set('list', $sorted_list);
+		set('panel_stats', $panel_stats);
+		set('registrant_stats', $registrant_stats);
+		set('network_count', $network_count);
 		return render('pages/register/list.php');
 	}
 

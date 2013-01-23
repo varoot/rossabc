@@ -27,6 +27,6 @@ set('short_panel', true);
 	{{>panels/technology}}
 </div>
 <div class="panel">
-	{{>panels/transportation-and-energy}}
+	{{>panels/transportation}}
 </div>
 </article>

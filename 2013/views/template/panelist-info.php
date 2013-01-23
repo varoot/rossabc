@@ -1,5 +1,5 @@
 {{#short_panel}}
-<li><strong>{{#profile_content}}<a href="{{base_uri}}panels/{{profile_panel_id}}#{{profile_id}}">{{/profile_content}}{{profile_name}},{{#profile_content}}</a>{{/profile_content}}</strong> {{profile_title}}</li>
+<li><strong>{{#profile_content}}<a href="{{base_uri}}panels/{{profile_panel_id}}#{{profile_id}}">{{/profile_content}}{{profile_name}}{{#profile_title}},{{/profile_title}}{{#profile_content}}</a>{{/profile_content}}</strong> {{profile_title}}</li>
 {{/short_panel}}
 {{^short_panel}}
 <section id="{{profile_id}}">

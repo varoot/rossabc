@@ -1,7 +1,7 @@
 <?php
 set('profile_panel_id', 'finance');
 set('panel_title', 'Finance');
-set('speakers', array('zachary-emig'));
+set('speakers', array('zachary-emig', 'robert-pfaff', 'yuen-yuen-ang'));
 set('moderators', array('uday-rajan'));
 ?>
 {{#short_panel}}<a href="{{base_uri}}panels/{{profile_panel_id}}">{{/short_panel}}

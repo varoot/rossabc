@@ -1,7 +1,7 @@
 <?php
 set('profile_panel_id', 'asean');
 set('panel_title', 'ASEAN');
-set('speakers', array(false));
+set('speakers', array('john-d-ciorciari'));
 set('moderators', array('linda-lim'));
 ?>
 {{#short_panel}}<a href="{{base_uri}}panels/{{profile_panel_id}}">{{/short_panel}}

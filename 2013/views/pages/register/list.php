@@ -31,63 +31,86 @@ set('page_title', 'Registration List');
 {{/list}}
 
 <?php if (!empty($list)) { ?>
-
+<h1>Panel Statistics</h1>
 <table class="admin">
-
 	<thead>
-
 		<tr>
-
-			<th>ID</th>
-
-			<th>Name</th>
-
-			<th>Email</th>
-
-			<th>Panel 1</th>
-
-			<th>Panel 2</th>
-
-			<th>Panel 3</th>
-
-			<th>Network?</th>
-
-			<th>Time</th>
-
+			<th>Panel
+			<th>Count
 		</tr>
-
 	</thead>
-
 	<tbody>
-
-{{#list}}
-
+	<?php
+	foreach ($panel_stats as $panel => $count)
+	{
+	?>
 		<tr>
-
-			<td>{{id}}</td>
-
-			<td>{{firstname}} {{lastname}}</td>
-
-			<td>{{email}}</td>
-
-			<td>{{panel1}}</td>
-
-			<td>{{panel2}}</td>
-
-			<td>{{panel3}}</td>
-
-			<td>{{network}}</td>
-
-			<td>{{time}}</td>
-
+			<td><?php echo $panel ?>
+			<td><?php if ($count > 0) echo $count ?>
 		</tr>
-
-{{/list}}
-
+	<?php
+	}
+	?>
+		<tr>
+			<td><em>Networking Reception</em>
+			<td>{{network_count}}
+		</tr>
 	</tbody>
-
 </table>
 
-<?php } ?>
+<h1>Registrant Statistics</h1>
+<table class="admin">
+	<thead>
+		<tr>
+			<th>Type
+			<th>Count
+		</tr>
+	</thead>
+	<tbody>
+	<?php
+	foreach ($registrant_stats as $type => $count)
+	{
+	?>
+		<tr>
+			<td><?php echo $type ?>
+			<td><?php if ($count > 0) echo $count ?>
+		</tr>
+	<?php
+	}
+	?>
+	</tbody>
+</table>
 
+<h1>Registrants</h1>
+<table class="admin admin-tiny">
+	<thead>
+		<tr>
+			<th>ID
+			<th>Name
+			<th>Type
+			<th>Email Address
+			<th>Panel&nbsp;1
+			<th>Panel&nbsp;2
+			<th>Panel&nbsp;3
+			<th><abbr title="Attend Networking Reception?">NW?</abbr>
+			<th>Time
+		</tr>
+	</thead>
+	<tbody>
+	{{#list}}
+		<tr>
+			<td>{{id}}
+			<td>{{firstname}} {{lastname}}
+			<td>{{type}}
+			<td>{{email}}
+			<td>{{panel1}}
+			<td>{{panel2}}
+			<td>{{panel3}}
+			<td>{{network}}
+			<td>{{time}}
+		</tr>
+	{{/list}}
+	</tbody>
+</table>
+<?php } ?>
 </article>

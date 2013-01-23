@@ -9,7 +9,7 @@ set('profile_role', 'Speaker');
 foreach ($speakers as $p) {
 	if ($p === FALSE) {
 		if ($short_panel) {
-			echo '<li>Coming Soon</li>';
+			echo '<li><em>TBD</em></li>';
 		}
 		continue;
 	}
@@ -26,7 +26,7 @@ if ( ! empty($moderators))
 	foreach ($moderators as $p) {
 		if ($p === FALSE) {
 			if ($short_panel) {
-				echo '<li><em>Coming Soon</em></li>';
+				echo '<li><em>TBD</em></li>';
 			}
 			continue;
 		}

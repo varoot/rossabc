@@ -1,8 +1,8 @@
 <?php
 set('profile_panel_id', 'china');
 set('panel_title', 'China');
-set('speakers', array('stefan-wu', 'siva-yam', 'yuen-yuen-ang'));
-set('moderators', false);
+set('speakers', array('siva-yam', 'stefan-wu', 'raj-sapru'));
+set('moderators', array('feng-li'));
 ?>
 {{#short_panel}}<a href="{{base_uri}}panels/{{profile_panel_id}}">{{/short_panel}}
 <div class="image"><img src="{{base_uri}}images/panels/{{profile_panel_id}}.jpg" width="200" height="150" alt="{{panel_title}} panel"></div>
