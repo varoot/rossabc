@@ -1,0 +1,10 @@
+<?php
+set('profile_id', 'puneet-manchanda');
+set('profile_name', 'Puneet Manchanda');
+set('profile_title', 'Isadore and Leon Winkelman Professor of Marketing, Chair of Marketing, Stephen M. Ross School of Business');
+set('profile_content', <<<HTML
+	<p>Puneet Manchanda’s main research interest is in building empirical models to solve strategic marketing problems such as resource allocation, launch planning, word-of-mouth marketing and CRM. His most recent work has focused on marketing strategy problems in social media and the pharmaceutical, hi-technology, gaming and insurance industries. His papers have appeared in Marketing Science, Journal of Marketing Research, Quantitative Marketing and Economics &amp; Marketing Letters. He is an Area Editor at Marketing Science, an Associate Editor at Management Science and at Quantitative Marketing and Economics, and is on the editorial board of the Journal of Marketing Research and the International Journal of Research in Marketing. A recent Journal of Marketing article noted that he was one of the top 50 most productive researchers in marketing during the 1982-2006 period. He was awarded the Ross School of Business Researcher of the Year award in 2011. He teaches in the MBA, Executive MBA, Weekend MBA, Global MBA and Executive Education programs at Ross. He has been nominated for multiple teaching awards at Ross and won the 2012 Global MBA and the 2011 Part Time MBA Teaching Excellence Awards. His research and commentary on current topics has been published in business media outlets such the New York Times, Sloan Management Review, Detroit Free Press, Investors Business Daily, Forbes.com and CIO Magazine. He is also active as a board member for companies in different industries such as high-technology and promotional products.</p>
+HTML
+);
+?>
+{{>template/panelist-info}}

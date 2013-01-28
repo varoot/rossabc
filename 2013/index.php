@@ -29,10 +29,25 @@ function configure()
 	set('register_online', time() < $deadline_registration);
 	set('register_early_deadline', date($date_fmt, $deadline_early_registration));
 	set('register_deadline', date($date_fmt, $deadline_registration));
+	option('deadline_registration', $deadline_registration);
+
+	option('payment_status', array(
+		'Canceled_Reversal',
+		'Completed',
+		'Created',
+		'Denied',
+		'Expired',
+		'Failed',
+		'Pending',
+		'Refunded',
+		'Reversed',
+		'Processed',
+		'Voided',
+	));
 
 	$registration_options = array(
 		'q1' => array('Undergraduate Student (any university)', 'Non-Undergraduate Student (any university)', 'Faculty (any university)', 'Michigan Alumni', 'Professional/Other'),
-		'q2' => array('China', 'Transportation and Energy', 'ASEAN (Southeast Asia)'),
+		'q2' => array('China', 'Transportation', 'ASEAN (Southeast Asia)'),
 		'q3' => array('India', 'Japan', 'Technology'),
 		'q4' => array('Finance', 'Entrepreneurship'),
 		'q5' => array('Yes', 'No'),
@@ -45,7 +60,7 @@ function configure()
 
 	$registration_internal = $registration_display;
 	$registration_internal['q1'] = array('Udg', 'Non-Udg', 'Faculty', 'Alumni', 'Other');
-	$registration_internal['q2'] = array('China', 'Energy', 'ASEAN');
+	$registration_internal['q2'] = array('China', 'Transport', 'ASEAN');
 	$registration_internal['q3'] = array('India', 'Japan', 'Tech');
 	$registration_internal['q4'] = array('Finance', 'Entrepreneur', 'Korea'); // Korea got cancelled
 	$registration_internal['q5'] = array('✓', '');
@@ -72,7 +87,7 @@ function configure()
 		'Register'=>'register',
 		'ASEAN Panel'=>'panels/asean',
 		'China Panel'=>'panels/china',
-		'Transportation and Energy Panel'=>'panels/transportation-and-energy',
+		'Transportation Panel'=>'panels/transportation',
 		'Entrepreneurship Panel'=>'panels/entrepreneurship',
 		'Finance Panel'=>'panels/finance',
 		'Japan Panel'=>'panels/japan',
@@ -82,7 +97,11 @@ function configure()
 	set('sitemap', $sitemap);
 	
 	set('google_analytics_id', 'UA-28569317-1');
-	compile_less();
+
+	if ($_SERVER["REMOTE_ADDR"] == '::1')
+	{
+		compile_less();
+	}
 }
 
 function compile_less()
@@ -98,6 +117,7 @@ function compile_less()
 		$cache = lessc::cexecute($cache);
 		if ($cache['updated'] > $last_updated) {
 			file_put_contents($css_file, $cache['compiled']);
+			file_put_contents($cache_file, serialize($cache));
 		}
 	} else {
 		// create a new cache object, and compile
@@ -259,15 +279,10 @@ dispatch_post('/payment-process', 'logPayment');
 
 			$unique_id = $_POST['custom'];
 
-			$status = 99;
-			if ($payment_status == 'Completed')
+			$status = array_search($payment_status, option('payment_status'));
+			if ($status === FALSE)
 			{
-				$status = 1;
-			}
-
-			if ($payment_status == 'Refunded')
-			{
-				$status = 2;
+				$status = 99;
 			}
 
 			registration_status($unique_id, $status);
@@ -388,18 +403,37 @@ dispatch_post('/register/list', 'registerList');
 		$registrant_stats = array_fill_keys($types, 0);
 
 		$list = array();
+		$others = array();
+		$graph = array();
+		$start_date = NULL;
+		$payment_status = option('payment_status');
 		foreach (registration_find_all() as $row)
 		{
 			$entry = $row['data'];
 			if (empty($entry)) continue;
 
-			// Only list people who paid
-			if ($row['status'] != 1) continue;
+			// Only list people who have status
+			if (empty($row['status'])) continue;
 
 			$data = @unserialize($entry);
 			if ( ! empty($row['timestamp']))
 			{
 				$data['time'] = date('M j, g:ia', $row['timestamp']);
+				$date = date('Y-m-d', $row['timestamp']);
+
+				if ($start_date === NULL)
+				{
+					$start_date = $date;
+				}
+
+				if ( ! array_key_exists($date, $graph))
+				{
+					$graph[$date] = 1;
+				}
+				else
+				{
+					$graph[$date]++;
+				}
 			}
 
 			$data['type'] = $internal['q1'][$data['q1']-1];
@@ -408,7 +442,16 @@ dispatch_post('/register/list', 'registerList');
 			$data['panel3'] = $internal['q4'][$data['q4']-1];
 			$data['network'] = $internal['q5'][$data['q5']-1];
 			$hash = $data['lastname'].'-'.$data['firstname'].'-'.$data['email'];
-			$list[$hash] = $data;
+
+			if ($payment_status[$row['status']] == 'Completed')
+			{
+				$list[$hash] = $data;
+			}
+			else
+			{
+				$data['remark'] = $payment_status[$row['status']];
+				$others[$hash] = $data;
+			}
 
 			// Count registrant stats
 			$registrant_stats[$display['q1'][$data['q1']-1]]++;
@@ -434,11 +477,36 @@ dispatch_post('/register/list', 'registerList');
 			$sorted_list[] = $l;
 		}
 
-		if (count($list) == 0)
+		foreach ($others as $l) {
+			$l['id'] = '*';
+			$sorted_list[] = $l;
+		}
+
+		if (count($sorted_list) == 0)
 		{
 			set('emptylist', true);
 		}
+
+		// Calculate graph heights
+		$display_graph = array();
+
+		for ($time = strtotime($start_date); $time < option('deadline_registration'); $time += 86400)
+		{
+			$date = date('Y-m-d', $time);
+			$count = 0;
+			if (array_key_exists($date, $graph))
+			{
+				$count = $graph[$date];
+			}
+			$display_graph[] = array(
+				'date'   => date('F j, Y', $time),
+				'height' => ($count * 5),
+				'label'  => date('j', $time),
+			);
+		}
 		
+		set('total_count', count($sorted_list));
+		set('graph', $display_graph);
 		set('list', $sorted_list);
 		set('panel_stats', $panel_stats);
 		set('registrant_stats', $registrant_stats);

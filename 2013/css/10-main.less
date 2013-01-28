@@ -469,6 +469,22 @@ dl {
 	}
 }
 
+.team-sub {
+	border: none;
+	margin: 0.8em 0 0 0;
+	padding: 0;
+
+	h1 {
+		font-size: @bodySize;
+		margin-bottom: 0;
+	}
+
+	dl {
+		margin-top: 0;
+		margin-bottom: 0;
+	}
+}
+
 address {
 	float: left;
 	margin-bottom: 1em;
@@ -672,6 +688,43 @@ input.other {
 	}
 }
 
+.admin-float {
+	border-top: none;
+	float: left;
+	margin: 0 2em 2em 0;
+	padding-top: 0;
+}
+
+.admin-full {
+	clear: both;
+}
+
+.bar-graph {
+	display: block;
+	text-align: center;
+
+	span {
+		display: inline-block;
+		text-align: center;
+		vertical-align: bottom;
+		width: 1.5em;
+
+		.bar {
+			background: @hover;
+			display: block;
+			margin: 0 auto;
+			width: 1em;
+			vertical-align: bottom;
+		}
+
+		.label {
+			border-top: 1px solid #ddd;
+			font-size: @tinySize;
+			width: 100%;
+		}
+	}
+}
+
 table.admin {
 	margin-top: 1em;
 
@@ -687,5 +740,13 @@ table.admin {
 
 	&.admin-tiny {
 		font-size: @tinySize;
+	}
+
+	tbody {
+		tr {
+			&:hover {
+				background: #fe6;
+			}
+		}
 	}
 }

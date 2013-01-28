@@ -12,7 +12,7 @@
 	<meta name="viewport" content="width=device-width,initial-scale=1">
 	<link rel="shortcut icon" href="{{base_uri}}images/favicon.ico" type="image/vnd.microsoft.icon">
 	<link href="http://fonts.googleapis.com/css?family=Open+Sans:400,400italic,600,600italic,700,700italic" rel="stylesheet" type="text/css">
-	<link rel="stylesheet" href="{{base_uri}}css/style.css?v=4" type="text/css">
+	<link rel="stylesheet" href="{{base_uri}}css/style.css?v=6" type="text/css">
 	{{>template/prefetch}}
 	<script src="{{base_uri}}js/modernizr-2.0.6.min.js"></script>
 	{{#page_title}}<meta property="og:title" content="{{page_title}}">{{/page_title}}

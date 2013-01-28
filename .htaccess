@@ -1,0 +1,12 @@
+# Turn on URL rewriting
+RewriteEngine On
+
+RewriteCond %{HTTP_HOST} !=rossabc.com
+RewriteRule ^(.*)$ http://rossabc.com/$1 [QSA,R=301,L]
+
+# Installation directory
+RewriteBase /
+
+# Rewrite all other URLs to index.php/URL
+RewriteCond %{REQUEST_URI} !^/(backup|201[23])
+RewriteRule (.*) 2013/$1 [R=301]

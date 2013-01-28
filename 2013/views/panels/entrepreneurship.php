@@ -2,7 +2,7 @@
 set('profile_panel_id', 'entrepreneurship');
 set('panel_title', 'Entrepreneurship');
 set('speakers', array('edy-sulistyo', 'grace-lee', 'hon-mun-yip'));
-set('moderators', false);
+set('moderators', array('aneel-karnani'));
 ?>
 {{#short_panel}}<a href="{{base_uri}}panels/{{profile_panel_id}}">{{/short_panel}}
 <div class="image"><img src="{{base_uri}}images/panels/{{profile_panel_id}}.jpg" width="200" height="150" alt="{{panel_title}} panel"></div>

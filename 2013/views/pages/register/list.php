@@ -31,6 +31,35 @@ set('page_title', 'Registration List');
 {{/list}}
 
 <?php if (!empty($list)) { ?>
+<section class="admin-float">
+<h1>Registrant Statistics</h1>
+<table class="admin">
+	<thead>
+		<tr>
+			<th>Type
+			<th>Count
+		</tr>
+	</thead>
+	<tbody>
+	<?php
+	foreach ($registrant_stats as $type => $count)
+	{
+	?>
+		<tr>
+			<td><?php echo $type ?>
+			<td><?php if ($count > 0) echo $count ?>
+		</tr>
+	<?php
+	}
+	?>
+		<tr>
+			<td><em>Total</em>
+			<td>{{total_count}}
+		</tr>
+	</tbody>
+</table>
+</section>
+<section class="admin-float">
 <h1>Panel Statistics</h1>
 <table class="admin">
 	<thead>
@@ -57,30 +86,11 @@ set('page_title', 'Registration List');
 		</tr>
 	</tbody>
 </table>
-
-<h1>Registrant Statistics</h1>
-<table class="admin">
-	<thead>
-		<tr>
-			<th>Type
-			<th>Count
-		</tr>
-	</thead>
-	<tbody>
-	<?php
-	foreach ($registrant_stats as $type => $count)
-	{
-	?>
-		<tr>
-			<td><?php echo $type ?>
-			<td><?php if ($count > 0) echo $count ?>
-		</tr>
-	<?php
-	}
-	?>
-	</tbody>
-</table>
-
+</section>
+<section class="admin-full">
+	<div class="bar-graph">{{#graph}}<span title="{{date}}"><span class="bar" style="height: {{height}}px"></span><span class="label">{{label}}</span></span>{{/graph}}</div>
+</section>
+<section class="admin-full">
 <h1>Registrants</h1>
 <table class="admin admin-tiny">
 	<thead>
@@ -99,7 +109,7 @@ set('page_title', 'Registration List');
 	<tbody>
 	{{#list}}
 		<tr>
-			<td>{{id}}
+			<td>{{#remark}}<abbr title="{{remark}}">{{/remark}}{{id}}{{#remark}}</abbr>{{/remark}}
 			<td>{{firstname}} {{lastname}}
 			<td>{{type}}
 			<td>{{email}}
@@ -112,5 +122,6 @@ set('page_title', 'Registration List');
 	{{/list}}
 	</tbody>
 </table>
+</section>
 <?php } ?>
 </article>
